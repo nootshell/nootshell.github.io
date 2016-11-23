@@ -47,13 +47,12 @@ div.social {
 	display: inline-block;
 }
 div.social > * {
-	opacity: 0.5;
+	opacity: 0.6;
 	
 	transition: 0.1s;
 }
-div.social:hover > a {
-	opacity: 0.8;
-	text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+div.social > a:hover {
+	opacity: 1.0;
 }
 
 div.content {
