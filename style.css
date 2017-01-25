@@ -61,3 +61,9 @@ div.content {
 	padding: 0 10px;
 	text-align: center;
 }
+div.footer {
+	margin-top: 10px;
+	text-align: center;
+	font-weight: 700;
+	opacity: 0.25;
+}
