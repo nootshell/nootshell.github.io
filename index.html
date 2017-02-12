@@ -31,7 +31,7 @@
 		<script type='text/javascript' language='javascript'>
 			window.theme_link = document.getElementById('theme_link');
 			window.theme_override = document.getElementById('theme_override');
-			set_theme_dark((Cookies.get('theme_dark') === 'y'), false);
+			set_theme_dark((window.theme_override.checked = (Cookies.get('theme_dark') === 'y')), false);
 		</script>
 	</body>
 </html>
