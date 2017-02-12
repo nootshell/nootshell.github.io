@@ -20,7 +20,7 @@ html {
 	font-size: 0.87em;
 	background-color: #FDFDFD;
 }
-body {
+body > div.ubercontent {
 	position: absolute;
 	
 	left: 50%;
@@ -50,7 +50,8 @@ div.social {
 }
 div.social > * {
 	opacity: 0.6;
-	
+}
+div.social > a {
 	transition: 0.1s;
 }
 div.social > a:hover {
@@ -65,5 +66,5 @@ div.footer {
 	margin-top: 10px;
 	text-align: center;
 	font-weight: 700;
-	opacity: 0.25;
+	opacity: 0.2875;
 }

@@ -1,0 +1,11 @@
+html, body {
+	background-color: #181818;
+	color: #E8E8E8;
+}
+div.social img.invertible {
+	filter: invert(100%);
+}
+hr {
+	border-color: #A0A0A0;
+	opacity: 0.65;
+}
