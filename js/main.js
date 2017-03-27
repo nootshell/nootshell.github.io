@@ -2,7 +2,7 @@ add_script('./js/lib/counter.js');
 //add_script('./js/lib/js.cookie.js');
 
 function on_timer(instance, time) {
-	instance.element.innerText = time.toFixed(instance.decimals) + ' (~' + (time / 30).toFixed(instance.decimals >> 1) + 'm)';
+	instance.element.innerText = time.toFixed(instance.decimals) + 'd (~' + (time / 30).toFixed(instance.decimals >> 1) + 'm)';
 }
 
 window.addEventListener('load', function() {
