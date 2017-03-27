@@ -2,8 +2,11 @@ html, body {
 	background-color: #181818;
 	color: #E8E8E8;
 }
-div.social img.invertible {
+.invertible {
 	filter: invert(100%);
+}
+a {
+	color: #E08030;
 }
 hr {
 	border-color: #A0A0A0;

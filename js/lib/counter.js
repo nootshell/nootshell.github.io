@@ -63,10 +63,10 @@ var Counter = class {
 				t /= 24;
 			}
 
-			instance.element.innerText = t.toFixed(instance.decimals);
-			
 			if (on_func) {
 				on_func(instance, t);
+			} else {
+				instance.element.innerText = t.toFixed(instance.decimals);
 			}
 		};
 	}

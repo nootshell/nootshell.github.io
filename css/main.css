@@ -24,10 +24,12 @@ body > div.ubercontent {
 	position: absolute;
 	
 	left: 50%;
-	top: 25%;
+	top: 33%;
 	transform: translate(-50%, -50%);
 	
 	white-space: nowrap;
+	
+	max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -41,6 +43,15 @@ hr {
 	border-bottom: none;
 }
 
+a {
+	text-decoration: none;
+	transition: 0.066s;
+	color: #FF8030;
+}
+a:hover {
+	color: #C06018;
+}
+
 div.social {
 	position: relative;
 	left: 50%;
@@ -48,23 +59,32 @@ div.social {
 	
 	display: inline-block;
 }
-div.social > * {
+div.social > a > img {
 	opacity: 0.6;
+	transition: inherit;
 }
-div.social > a {
-	transition: 0.1s;
-}
-div.social > a:hover {
+div.social > a > img:hover {
 	opacity: 1.0;
 }
 
 div.content {
 	padding: 0 10px;
 	text-align: center;
+	max-width: 100%;
+	white-space: normal;
 }
 div.footer {
 	margin-top: 10px;
 	text-align: center;
 	font-weight: 700;
 	opacity: 0.2875;
+}
+code {
+	display: inline-block;
+	font-size: 1em;
+}
+code.text {
+	width: 440px;
+	text-align: justify;
+	font-size: 1.1em;
 }
