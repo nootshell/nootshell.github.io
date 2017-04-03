@@ -19,10 +19,12 @@ html {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 0.87em;
 	background-color: #FDFDFD;
+	width: 100%;
+}
+body {
+	width: 100%;
 }
 body > div.ubercontent {
-	position: absolute;
-	
 	width: 600px;
 	
 	margin-left: calc(50% - 300px);
