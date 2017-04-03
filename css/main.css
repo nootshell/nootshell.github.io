@@ -19,18 +19,17 @@ html {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 0.87em;
 	background-color: #FDFDFD;
-	width: 100%;
-}
-body {
-	width: 100%;
 }
 body > div.ubercontent {
-	width: 600px;
+	position: absolute;
 	
-	margin-left: calc(50% - 300px);
-	margin-top: 12.5%;
+	left: 50%;
+	top: 33%;
+	transform: translate(-50%, -50%);
 	
 	white-space: nowrap;
+	
+	max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -89,3 +88,4 @@ code.text {
 	text-align: justify;
 	font-size: 1.1em;
 }
+
