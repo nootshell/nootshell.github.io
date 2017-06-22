@@ -89,3 +89,18 @@ code.text {
 	font-size: 1.1em;
 }
 
+code.cctype {
+	padding-right: 2px;
+}
+code.cctype::after {
+	content: ':';
+}
+code.cctype, code.ccaddress {
+	opacity: 0.9;
+}
+code.ccaddress::-moz-selection {
+	color: #FF6800;
+}
+code.ccaddress::selection {
+	color: #FF6800;
+}
