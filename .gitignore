@@ -1,6 +1,13 @@
+# Ignore everything.
 *
 !*/
+
+# Except source files.
 !*.html
 !*.css
 !*.js
 !*.png
+
+# Except files in these directories.
+!info/*
+
