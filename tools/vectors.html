@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset='UTF-8'/>
+		<script language='javascript' type='text/javascript' src='../js/events.js'></script>
+		<script language='javascript' type='text/javascript'>
+			function selectElementText(element) {
+				var range = document.createRange();
+				range.selectNodeContents(element);
+				
+				var selection = window.getSelection();
+				selection.removeAllRanges();
+				selection.addRange(range);
+			}
+			
+			function copyOutput(element) {
+				if (!element) {
+					element = document.querySelector('.output > #result');
+				}
+				
+				if (!element) {
+					console.error("Couldn't find element to copy text from.");
+					return;
+				}
+				
+				selectElementText(element);
+				document.execCommand('copy');
+			}
+			
+			function setOutput(value, copy) {
+				var element = document.querySelector('.output > #result');
+				
+				if (!element) {
+					prompt("Couldn't find output element, prompt() fallback.", value);
+					return;
+				}
+				
+				element.textContent = value;
+				
+				if (copy) {
+					copyOutput(element);
+				}
+			}
+			
+			function transformDigest() {
+				var value = document.getElementById('digest').value;
+				
+				if (!value.match(/([A-Za-z0-9]{2})+/)) {				
+					setOutput('Input is not a valid digest. Digests must be alphanumeric and have a length divisible by 2.');
+					return;
+				}
+				
+				var bytes = [];
+				for (var i = 0, end = value.length; i < end; i += 2) {
+					bytes.push(value.substr(i, 2).toUpperCase());
+				}
+				setOutput('{ 0x' + bytes.join(', 0x') + ' }');
+			}
+		</script>
+		<style type='text/css'>
+			* {
+				box-sizing: border-box;
+			}
+			
+			html > body {
+				width: 480px;
+				
+				padding-top: 20px;
+				
+				margin-left: 50%;
+				transform: translate(-50%, 0);
+			}
+			
+			form.fat * {
+				width: 100%;
+				
+				margin-top: 4px;
+			}
+			
+			form.fat *:first-child {
+				margin-top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Digests to C arrays</h2>
+		
+		<form class='fat' onsubmit='javascript:return false;'>
+			<label for='digest'>
+				Digest:<br/>
+				<input id='digest' type='text' placeholder='Digest' style='font-family: monospace;'/>
+			</label><br/>
+			<button x-onclick='transformDigest'>Transform</button><br/>
+			<button x-onclick='transformDigestCopy'>Transform & Copy</button>
+		</form>
+		
+		<br/>
+		
+		<span class='output'>
+			Output:<br/>
+			<code id='result'>None yet</code>
+		</span>
+	</body>
+</html>
