@@ -43,7 +43,7 @@
 				}
 			}
 			
-			function transformDigest() {
+			function transformDigestEx(copy) {
 				var value = document.getElementById('digest').value;
 				
 				if (!value.match(/([A-Za-z0-9]{2})+/)) {				
@@ -55,7 +55,15 @@
 				for (var i = 0, end = value.length; i < end; i += 2) {
 					bytes.push(value.substr(i, 2).toUpperCase());
 				}
-				setOutput('{ 0x' + bytes.join(', 0x') + ' }');
+				setOutput('{ 0x' + bytes.join(', 0x') + ' }', copy);
+			}
+			
+			function transformDigest() {
+				transformDigestEx(false);
+			}
+			
+			function transformDigestCopy() {
+				transformDigestEx(true);
 			}
 		</script>
 		<style type='text/css'>
