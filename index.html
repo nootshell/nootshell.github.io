@@ -3,45 +3,54 @@
 	<head>
 		<title>ice cube tray</title>
 		<meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
-		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700'/>
-		<link rel='stylesheet' type='text/css' href='./css/main.css'/>
-		<link id='theme_link' rel='stylesheet' type='text/css' href='./css/override.none.css'/>
-		<script type='text/javascript' language='javascript' src='./js/lib/shared.js'></script>
-		<script type='text/javascript' language='javascript' src='./js/lib/js.cookie.js'></script>
-		<script type='text/javascript' language='javascript' src='./js/main.js'></script>
+		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Khula:400,700|Quantico:400,700' />
+		<link rel='stylesheet' type='text/css' href='./css/main.css' />
+		<script type='text/javascript' language='javascript' src='./js/classes/counter.js'></script>
 	</head>
 	<body>
-		<div class='ubercontent'>
-			<div style='position: absolute; top: 0; right: 0; display: inline-block; padding: 5px 10px;'>
-				<label><input id='theme_override' type='checkbox' onchange="javascript:{set_theme_dark(this.checked, true);}" style='transform: scale(0.7);'/> <font style='position: relative; top: -3px; left: -2px; font-size: 0.9em;'>Dark</font></label>
-			</div>
-			<h1>ice cube tray</h1>
-			<div class='social'>
-				<a href='https://github.com/icecubetray'><img class='invertible' src='./media/github_logo.png' height='22px' alt='GitHub' style='position: relative; top: 6px; left: -2px;'/></a> | <a href='https://hub.docker.com/u/icecubetray/'>Docker Hub</a>
-			</div>
-			<hr/>
-			<div class='content'>
-				Pseudonymous C zealot interested in cryptography, communications, and security.<br/>
-				I passionately love my girlfriend.
-			</div>
-			<hr/>
-			<ul style='padding-left: 25px;'>
-				<li>
-					<a href='./info/donate.txt'>info/donate.txt</a>
-				</li>
-				<li>
-					<a href='./tools/vectors.html'>tools/vectors.html</a>
-				</li>
-			</ul>
-			<hr/>
-			<div class='footer'>
-				<span id='italian_counter'></span>
+		<h1 id='title-main'><span>i</span><span>c</span><span>e</span> <span>c</span><span>u</span><span>b</span><span>e</span> <span>t</span><span>r</span><span>a</span><span>y</span></h1>
+		
+		<hr />
+		
+		<div id='content'>
+			<p>Hey! Awesome that you made it here.</p>
+			<p>I'm a proud Dutch pseudonymous programmer with a main interest in communications, privacy, and security.</p>
+			<p>My main projects can be found on my GitHub profile, and include <a href='//github.com/icecubetray/serum'>serum</a> and <a href='//github.com/icecubetray/venom'>venom</a>.</p>
+			<p>If you are keen on donating, more information can be found <a href='./info/donate.txt'>here</a>.</p>
+			<p>
+				My GPG key can be found in <a href='./info/icecubetray.gpg'>binary</a> and <a href='./info/icecubetray.gpg.txt'>text</a> format.<br/>
+				Fingerprint: <code>02A7 23AB 4AFD 4DD6 A0E8  1DBD 1AA7 5C9E 5AFE 7E2F</code>
+			</p>
+			
+			<div id='social'>
+				<div id='counter'>
+					I've been with my adorable girlfriend for about <span id='italian_counter_days'></span> days now.
+				</div>
+				
+				<a class='badge' href='//github.com/icecubetray'><img src='./media/github_logo.png' alt='GitHub' height='22' /></a><!--
+				--><a class='badge' href='//hub.docker.com/u/icecubetray'><img src='./media/docker_logo.png' alt='Docker' height='22' /></a>
 			</div>
 		</div>
+		
 		<script type='text/javascript' language='javascript'>
-			window.theme_link = document.getElementById('theme_link');
-			window.theme_override = document.getElementById('theme_override');
-			set_theme_dark((window.theme_override.checked = (Cookies.get('theme_dark') === 'y')), false);
+			window.x_italian_counter = {
+				"element": {
+					"days": document.getElementById('italian_counter_days')
+				},
+				"instance": new Counter(new Date('2016-11-27 18:00')),
+				"handle": null
+			};
+
+			function updateItalianCounter() {
+				var months = window.x_italian_counter.instance.getDiffMonths(true);
+				var days = window.x_italian_counter.instance.getDiffDays(true);
+
+				window.x_italian_counter.element.days.textContent = days.toFixed(2);
+				window.x_italian_counter.element.days.setAttribute('title', days.toFixed(5) + ' days to be more precise, which is about ' + months.toFixed(2) + ' months');
+			}
+
+			window.x_italian_counter.handle = setInterval(updateItalianCounter, 2250);
+			updateItalianCounter();
 		</script>
 	</body>
 </html>
