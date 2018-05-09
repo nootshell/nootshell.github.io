@@ -44,16 +44,20 @@
 			}
 			
 			function transformDigestEx(copy) {
-				var value = document.getElementById('digest').value;
+				var value = document.getElementById('digest').value.replace(/\s/g, '');
 				
-				if (!value.match(/([A-Za-z0-9]{2})+/)) {				
-					setOutput('Input is not a valid digest. Digests must be alphanumeric and have a length divisible by 2.');
+				if (!value.match(/^[A-Fa-f0-9]+$/)) {
+					setOutput('Input is not a valid digest.');
 					return;
 				}
 				
-				var bytes = [];
+				var bytes = [], byte;
 				for (var i = 0, end = value.length; i < end; i += 2) {
-					bytes.push(value.substr(i, 2).toUpperCase());
+					byte = value.substr(i, 2).toUpperCase();
+					if (byte.length == 1) {
+						byte = '0' + byte;
+					}
+					bytes.push(byte);
 				}
 				setOutput('{ 0x' + bytes.join(', 0x') + ' }', copy);
 			}
@@ -97,7 +101,7 @@
 		<form class='fat' onsubmit='javascript:return false;'>
 			<label for='digest'>
 				Digest:<br/>
-				<input id='digest' type='text' placeholder='Digest' style='font-family: monospace;'/>
+				<input id='digest' type='text' autocomplete='off' placeholder='Digest' style='font-family: monospace;'/>
 			</label><br/>
 			<button x-onclick='transformDigest'>Transform</button><br/>
 			<button x-onclick='transformDigestCopy'>Transform &amp; Copy</button>
