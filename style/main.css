@@ -1,0 +1,53 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	font-size: .92em;
+}
+
+
+* {
+	/* Ensure things size normally. */
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+
+body > div.content {
+	display: inline-block;
+
+	/* Center-ish. */
+	margin: 21.5% 0 0 50%;
+	transform: translate(-50%, -50%);
+}
+
+
+footer {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+
+	padding: 4px 8px;
+
+	font-size: 0.666em;
+}
+
+
+.magic-title {
+	display: table;
+	font-size: 2.345em;
+}
+
+.magic-title > .peekaboo {
+	display: inline-block;
+	width: 0px;
+	overflow-x: hidden;
+	transition: .085s;
+	vertical-align: bottom;
+}
+
+.magic-title:hover > .peekaboo {
+	width: 1ch;
+}

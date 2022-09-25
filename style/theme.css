@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@300&display=swap');
+
+html {
+	font-family: 'Red Hat Mono';
+
+	color: #FFF8E7;
+	background-color: hsl(189, 13%, 8%);
+}

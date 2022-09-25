@@ -1,44 +1,21 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
 	<head>
-		<title>ice cube tray</title>
-		<meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
-		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Khula:400,700|Quantico:400,700' />
-		<link rel='stylesheet' type='text/css' href='./css/main.css' />
-		<script type='text/javascript' language='javascript' src='./js/classes/counter.js'></script>
+		<title>ntsh.dev</title>
+
+		<link rel="stylesheet" type="text/css" href="style/main.css" />
+		<link rel="stylesheet" type="text/css" href="style/theme.css" />
 	</head>
 	<body>
-		<h1 id='title-main'><span>i</span><span>c</span><span>e</span> <span>c</span><span>u</span><span>b</span><span>e</span> <span>t</span><span>r</span><span>a</span><span>y</span></h1>
-		
-		<div id='content'>
-			<div id='social'>
-				<div id='counter'>
-					<span id='italian_counter_days'></span>
-				</div>
-				
-				<a class='badge' href='//github.com/icecubetray'><img src='./media/github_logo.png' alt='GitHub' height='22' /></a>
-			</div>
+		<div class="content">
+			<h1 class="magic-title">n<span class="peekaboo">o</span><span class="peekaboo">o</span>tsh<span class="peekaboo">e</span><span class="peekaboo">l</span><span class="peekaboo">l</span></h1>
+			Professional <span title="Latte macchiato, occasionally espresso.">coffee</span>-to-<span title="C/C#/C++">code</span> converter, occasional <span title="Fruit on pizza is criminal.">pizza</span> muncher.<br />
+			Avid combat flight simmer, absolute <span title="Meow!">cat</span> person.<br />
+			Totally <span title="Wasted = wasted.">teetotaler</span>, INTP-A rated (<span title="Seriously.">therefore bites and licks</span>).
 		</div>
-		
-		<script type='text/javascript' language='javascript'>
-			window.x_italian_counter = {
-				"element": {
-					"days": document.getElementById('italian_counter_days')
-				},
-				"instance": new Counter(new Date('2016-11-27 18:00')),
-				"handle": null
-			};
 
-			function updateItalianCounter() {
-				var months = window.x_italian_counter.instance.getDiffMonths(true);
-				var days = window.x_italian_counter.instance.getDiffDays(true);
-
-				window.x_italian_counter.element.days.textContent = days.toFixed(2);
-				window.x_italian_counter.element.days.setAttribute('title', days.toFixed(5) + ' days to be more precise, which is about ' + months.toFixed(2) + ' months');
-			}
-
-			window.x_italian_counter.handle = setInterval(updateItalianCounter, 2250);
-			updateItalianCounter();
-		</script>
+		<footer>
+			&#x1F1F3;&#x1F1F1;
+		</footer>
 	</body>
 </html>
