@@ -42,6 +42,7 @@ footer {
 .magic-title {
 	display: table;
 	font-size: 2.5em;
+	cursor: default;
 }
 
 .magic-title > .peekaboo {
