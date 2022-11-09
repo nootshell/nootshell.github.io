@@ -61,3 +61,15 @@ footer {
 .magic-title:hover > .peekaboo {
 	width: 1ch;
 }
+
+
+
+
+@media (orientation: landscape) {
+
+	body > div.content {
+		margin-left: 50%;
+		transform: translateX(-50%);
+	}
+
+}
