@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<link rel="icon" href="./favicon.png" />
+		<title>ntsh.dev</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" type="text/css" href="style/main.css" />
+		<link rel="stylesheet" type="text/css" href="style/theme.css" />
+	</head>
+	<body>
+		<div class="content">
+			<form onsubmit="return false;">
+				<label>Clock speed: <input type="number" id="clock-mhz" /> (MHz)</label><br/><br/>
+				<label>CAS latency: <input type="number" id="latency-cas" /> (CL)</label><br/><br/>
+				<button onclick='poopResult()'>Crunch</button> <span id="result">-</span> ns
+			</form>
+		</div>
+
+		<footer>
+			&#x1F1F3;&#x1F1F1;
+		</footer>
+
+		<script type="text/javascript" language="javascript">
+			function poopResult() {
+				document.getElementById('result').innerText = (parseFloat(document.getElementById('latency-cas').value) * (1000.0 / (parseFloat(document.getElementById('clock-mhz').value) / 2.0))).toFixed(3);
+			}
+		</script>
+	</body>
+</html>
