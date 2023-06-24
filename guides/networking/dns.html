@@ -25,15 +25,15 @@
 			<ul class="spaced">
 				<li>
 					<b>Quad9</b><br/>
-					TLS: <code>tls://dns.quad9.net</code><br/>
-					HTTPS: <code>https://dns.quad9.net/dns-query</code><br/>
-					IPv4: <code>9.9.9.9</code>, <code>149.112.112.112</code><br/>
-					IPv6: <code>2620:fe::fe</code>, <code>2620:fe::9</code>
+					TLS: <code class="easy-select">tls://dns.quad9.net</code><br/>
+					HTTPS: <code class="easy-select">https://dns.quad9.net/dns-query</code><br/>
+					IPv4: <code class="easy-select">9.9.9.9</code>, <code class="easy-select">149.112.112.112</code><br/>
+					IPv6: <code class="easy-select">2620:fe::fe</code>, <code class="easy-select">2620:fe::9</code>
 				</li>
 				<li>
 					<b>Cloudflare</b><br/>
-					IPv4: <code>1.1.1.1</code>, <code>1.0.0.1</code><br/>
-					IPv6: <code>2606:4700:4700::1111</code>, <code>2606:4700:4700::1001</code>
+					IPv4: <code class="easy-select">1.1.1.1</code>, <code class="easy-select">1.0.0.1</code><br/>
+					IPv6: <code class="easy-select">2606:4700:4700::1111</code>, <code class="easy-select">2606:4700:4700::1001</code>
 				</li>
 			</ul>
 
@@ -55,8 +55,8 @@
 						<li>Scroll down the checked listbox until you find &quot;Internet Protocol Version 6 (TCP/IPv6)&quot;</li>
 						<li>Select it and press the &quot;Properties&quot; button below the listbox</li>
 						<li>Under the &quot;General&quot; tab, select &quot;Use the following DNS server addresses&quot; at the bottom</li>
-						<li>For &quot;Preferred DNS server&quot; use <code>2620:fe::fe</code></li>
-						<li>For &quot;Alternative DNS server&quot; use <code>2620:fe::9</code></li>
+						<li>For &quot;Preferred DNS server&quot; use <code class="easy-select">2620:fe::fe</code></li>
+						<li>For &quot;Alternative DNS server&quot; use <code class="easy-select">2620:fe::9</code></li>
 						<li>Click &quot;OK&quot; and you should be all set</li>
 					</ol>
 				</li>
@@ -66,8 +66,8 @@
 						<li>Scroll down the checked listbox until you find &quot;Internet Protocol Version 4 (TCP/IPv4)&quot;</li>
 						<li>Select it and press the &quot;Properties&quot; button below the listbox</li>
 						<li>Under the &quot;General&quot; tab, select &quot;Use the following DNS server addresses&quot; at the bottom</li>
-						<li>For &quot;Preferred DNS server&quot; use <code>9.9.9.9</code></li>
-						<li>For &quot;Alternative DNS server&quot; use <code>149.112.112.112</code></li>
+						<li>For &quot;Preferred DNS server&quot; use <code class="easy-select">9.9.9.9</code></li>
+						<li>For &quot;Alternative DNS server&quot; use <code class="easy-select">149.112.112.112</code></li>
 						<li>Click &quot;OK&quot; and you should be all set</li>
 					</ol>
 				</li>
@@ -78,15 +78,15 @@
 				<li>
 					<b>Resolv.conf</b>
 					<ol>
-						<li>Open <code>/etc/resolv.conf</code> in an editor with elevated privileges</li>
+						<li>Open <code class="easy-select">/etc/resolv.conf</code> in an editor with elevated privileges</li>
 						<li>Remove all <code>nameserver</code> entries (or comment them out)</li>
 						<li>
 							Add the following <code>nameserver</code> entries:
 							<ol>
-								<li><code>nameserver 2620:fe::fe</code></li>
-								<li><code>nameserver 9.9.9.9</code></li>
-								<li><code>nameserver 2620:fe::9</code></li>
-								<li><code>nameserver 149.112.112.112</code></li>
+								<li><code class="easy-select">nameserver 2620:fe::fe</code></li>
+								<li><code class="easy-select">nameserver 9.9.9.9</code></li>
+								<li><code class="easy-select">nameserver 2620:fe::9</code></li>
+								<li><code class="easy-select">nameserver 149.112.112.112</code></li>
 							</ol>
 						</li>
 					</ol>
@@ -94,12 +94,12 @@
 				<li>
 					<b>Systemd</b>
 					<ol>
-						<li>Open <code>/etc/systemd/resolved.conf</code> in an editor with elevated privileges</li>
+						<li>Open <code class="easy-select">/etc/systemd/resolved.conf</code> in an editor with elevated privileges</li>
 						<li>
 							Under <code>[Resolve]</code> configure the following:
 							<ol>
-								<li>Set <code>DNS</code> to <code>2620:fe::fe 9.9.9.9</code></li>
-								<li>Set <code>FallbackDNS</code> to <code>2620:fe::9 149.112.112.112</code></li>
+								<li>Set <code class="easy-select">DNS</code> to <code class="easy-select">2620:fe::fe 9.9.9.9</code></li>
+								<li>Set <code class="easy-select">FallbackDNS</code> to <code class="easy-select">2620:fe::9 149.112.112.112</code></li>
 							</ol>
 						</li>
 					</ol>

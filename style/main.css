@@ -103,6 +103,13 @@ a:hover {
 
 
 
+code.easy-select {
+	user-select: all;
+}
+
+
+
+
 @media (orientation: landscape) {
 
 	body > div.content {
