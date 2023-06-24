@@ -28,13 +28,26 @@ body > div.content {
 	margin: 10%;
 }
 
-body > div.content > p {
+body > div.content {
 	font-size: 0.95em;
+}
+
+body > div.content code {
+	font-size: 1.1em;
+}
+
+body > div.content h1,
+body > div.content h2,
+body > div.content h3,
+body > div.content h4,
+body > div.content h5,
+body > div.content h6 {
+	margin: 24px 0 4px 0;
 }
 
 
 footer {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	right: 0;
 
@@ -60,6 +73,31 @@ footer {
 
 .magic-title:hover > .peekaboo {
 	width: 1ch;
+}
+
+
+
+
+ol, ul {
+	margin: 0;
+	padding: 0 0 0 24px;
+}
+
+ol.spaced > li:not(:first-of-type), ul.spaced > li:not(:first-of-type) {
+	margin: 12px 0 0 0;
+}
+
+
+a {
+	transition: 0.125s;
+}
+
+a:visited {
+	color: inherit;
+}
+
+a:hover {
+	opacity: 0.8;
 }
 
 

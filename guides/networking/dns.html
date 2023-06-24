@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<link rel="icon" href="../../favicon.png" />
+		<title>ntsh.dev</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" type="text/css" href="../../style/main.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/theme.css" />
+	</head>
+	<body>
+		<div class="content">
+			<h1>DNS configuration</h1>
+			<p>
+				Configuring a well-known DNS resolver instead of using your ISP-provided one has several benefits, specifically when most ISPs seem to not bother resolving &quot;unpopular&quot; domain names.
+				Some resolvers also put a higher priority on privacy and security, items that ISPs may generally lack.<br/>
+				<br/>
+				In the guide I will be using the Quad9 addresses by default, since they're easy enough to remember and should pretty much tick all the boxes (privacy, security, performance).<br/>
+				<br/>
+				I cannot recommend using Google's DNS resolver, as there's simply too many privacy issues when it comes to Google. Goes for pretty much any giant corporation known for selling your data.
+			</p>
+
+			<h2>Recommended resolvers</h2>
+			<ul class="spaced">
+				<li>
+					<b>Quad9</b><br/>
+					TLS: <code>tls://dns.quad9.net</code><br/>
+					HTTPS: <code>https://dns.quad9.net/dns-query</code><br/>
+					IPv4: <code>9.9.9.9</code>, <code>149.112.112.112</code><br/>
+					IPv6: <code>2620:fe::fe</code>, <code>2620:fe::9</code>
+				</li>
+				<li>
+					<b>Cloudflare</b><br/>
+					IPv4: <code>1.1.1.1</code>, <code>1.0.0.1</code><br/>
+					IPv6: <code>2606:4700:4700::1111</code>, <code>2606:4700:4700::1001</code>
+				</li>
+			</ul>
+
+			<h2>Configuring Windows (IP)</h2>
+			<ol class="spaced">
+				<li>
+					Open the adapter settings by navigating:
+					<ol>
+						<li>Settings</li>
+						<li>Network &amp; Internet</li>
+						<li>Change adapter options</li>
+						<li>Select the adapter you want to configure</li>
+						<li>Right-click: Properties</li>
+					</ol>
+				</li>
+				<li>
+					If you're using IPv6:
+					<ol>
+						<li>Scroll down the checked listbox until you find &quot;Internet Protocol Version 6 (TCP/IPv6)&quot;</li>
+						<li>Select it and press the &quot;Properties&quot; button below the listbox</li>
+						<li>Under the &quot;General&quot; tab, select &quot;Use the following DNS server addresses&quot; at the bottom</li>
+						<li>For &quot;Preferred DNS server&quot; use <code>2620:fe::fe</code></li>
+						<li>For &quot;Alternative DNS server&quot; use <code>2620:fe::9</code></li>
+						<li>Click &quot;OK&quot; and you should be all set</li>
+					</ol>
+				</li>
+				<li>
+					If you're (still) using IPv4:
+					<ol>
+						<li>Scroll down the checked listbox until you find &quot;Internet Protocol Version 4 (TCP/IPv4)&quot;</li>
+						<li>Select it and press the &quot;Properties&quot; button below the listbox</li>
+						<li>Under the &quot;General&quot; tab, select &quot;Use the following DNS server addresses&quot; at the bottom</li>
+						<li>For &quot;Preferred DNS server&quot; use <code>9.9.9.9</code></li>
+						<li>For &quot;Alternative DNS server&quot; use <code>149.112.112.112</code></li>
+						<li>Click &quot;OK&quot; and you should be all set</li>
+					</ol>
+				</li>
+			</ol>
+
+			<h2>Configuring Linux (IP)</h2>
+			<ul class="spaced">
+				<li>
+					<b>Resolv.conf</b>
+					<ol>
+						<li>Open <code>/etc/resolv.conf</code> in an editor with elevated privileges</li>
+						<li>Remove all <code>nameserver</code> entries (or comment them out)</li>
+						<li>
+							Add the following <code>nameserver</code> entries:
+							<ol>
+								<li><code>nameserver 2620:fe::fe</code></li>
+								<li><code>nameserver 9.9.9.9</code></li>
+								<li><code>nameserver 2620:fe::9</code></li>
+								<li><code>nameserver 149.112.112.112</code></li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<b>Systemd</b>
+					<ol>
+						<li>Open <code>/etc/systemd/resolved.conf</code> in an editor with elevated privileges</li>
+						<li>
+							Under <code>[Resolve]</code> configure the following:
+							<ol>
+								<li>Set <code>DNS</code> to <code>2620:fe::fe 9.9.9.9</code></li>
+								<li>Set <code>FallbackDNS</code> to <code>2620:fe::9 149.112.112.112</code></li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+			</ul>
+		</div>
+
+		<footer>
+			&#x1F1F3;&#x1F1F1;
+		</footer>
+	</body>
+</html>
